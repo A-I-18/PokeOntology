@@ -3,8 +3,7 @@ from owlready2 import *
 # Create new empty ontology specifing its IRI
 onto = get_ontology("http://myonto.com/pokeOntology.owl")
 
-# Create classes
-class Organism(Thing):
-    namespace = onto
+import model
+model.createModel(onto)
 
-print (Organism.iri)
+onto.save(file="pokeOntology.owl", format="ntriples")
