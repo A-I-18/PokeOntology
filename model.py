@@ -41,3 +41,23 @@ def createModel(onto):
         pass
     class Ivysaur(GrassPokemon, PoisonPokemon):
         pass
+    class Charmeleon(FirePokemon):
+        pass
+    class Charizard(FirePokemon, FlyingPokemon):
+        pass
+    class Pikachu(ElectricPokemon):
+        pass
+    class Zapados(ElectricPokemon, FlyingPokemon):
+        pass
+    class Evee(NormalPokemon):
+        pass
+    class Vaporeon(WaterPokemon):
+        pass
+    class Jolteon(ElectricPokemon):
+        pass
+    class Moltres(FirePokemon, FlyingPokemon):
+        pass
+    class Squirtle(WaterPokemon):
+        pass
+    class Wartortle(WaterPokemon):
+        pass
