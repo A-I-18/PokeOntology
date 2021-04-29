@@ -12,12 +12,14 @@ def createModel(onto):
         pass
     class Pokemon(Organism):
         pass
+    AllDisjoint([Human, Pokemon])
 
     # Humans can either be PokemonTrainer or SimpleHuman
     class PokemonTrainer(Human):
         pass
     class SimpleHuman(Human):
         pass
+    AllDisjoint([PokemonTrainer, SimpleHuman])
 
     # There are different kinds of Pokemon, based on their type:
     # FirePokemon, WaterPokemon, GrassPokemon, PoisonPokemon, FlyingPokemon, ElectricPokemon and NormalPokemon
@@ -61,3 +63,5 @@ def createModel(onto):
         pass
     class Wartortle(WaterPokemon):
         pass
+    AllDisjoint([Bulbasaur, Ivysaur, Charmeleon, Charizard, Pikachu, Zapados, Evee, Vaporeon, Jolteon, Moltres, Squirtle, Wartortle])
+
