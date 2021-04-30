@@ -95,3 +95,17 @@ def createModel(onto):
         # NormalPokemon have weakness to PoisonPokemon
         NormalPokemon.is_a.append(weakness.only(PoisonPokemon))
 
+    # A Pokemon may evolve into another Pokemon
+    with onto:
+        class evolves(ObjectProperty, FunctionalProperty):
+            domain    = [Pokemon]
+            range     = [Pokemon]
+        # Bulbasaur evolves to Ivysaur
+        Bulbasaur.is_a.append(evolves.only(Ivysaur))
+        # Charmeleon evolves to Charizard
+        Charmeleon.is_a.append(evolves.only(Charizard))
+        # Eevee can evolve to either Vaporeon or Jolteon
+        Evee.is_a.append(evolves.only(Vaporeon | Jolteon))
+        # Squirtle evolves to WarTortle
+        Squirtle.is_a.append(evolves.only(Wartortle))
+
