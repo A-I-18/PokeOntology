@@ -75,3 +75,23 @@ def createModel(onto):
     ElectricPokemon.equivalent_to.append(Pikachu | Zapados | Jolteon)
     NormalPokemon.equivalent_to.append(Evee)
 
+    '''
+    PROPERTIES DEFINITION
+    '''
+            
+    # A Pokemon of one kind may have a weakness to a Pokemon of another kind
+    with onto:
+        class weakness(ObjectProperty):
+            domain    = [Pokemon]
+            range     = [Pokemon]
+        # WaterPokemon have weakness to ElectricPokemon or GrassPokemon
+        WaterPokemon.is_a.append(weakness.only(ElectricPokemon))
+        # FirePokemon have weakness to ElectricPokemon or WaterPokemon
+        FirePokemon(Pokemon).is_a.append(weakness.only(WaterPokemon))
+        # GrassPokemon have weakness to FirePokemon or FlyingPokemon
+        GrassPokemon.is_a.append(weakness.only(FirePokemon | FlyingPokemon))
+        # ElectricPokemon have weakness to GrassPokemon
+        ElectricPokemon.is_a.append(weakness.only(GrassPokemon))
+        # NormalPokemon have weakness to PoisonPokemon
+        NormalPokemon.is_a.append(weakness.only(PoisonPokemon))
+
