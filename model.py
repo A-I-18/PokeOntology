@@ -13,6 +13,7 @@ def createModel(onto):
     class Pokemon(Organism):
         pass
     AllDisjoint([Human, Pokemon])
+    Organism.equivalent_to.append(Human | Pokemon)
 
     # Humans can either be PokemonTrainer or SimpleHuman
     class PokemonTrainer(Human):
@@ -20,6 +21,7 @@ def createModel(onto):
     class SimpleHuman(Human):
         pass
     AllDisjoint([PokemonTrainer, SimpleHuman])
+    Human.equivalent_to.append(PokemonTrainer | SimpleHuman)
 
     # There are different kinds of Pokemon, based on their type:
     # FirePokemon, WaterPokemon, GrassPokemon, PoisonPokemon, FlyingPokemon, ElectricPokemon and NormalPokemon
@@ -37,6 +39,7 @@ def createModel(onto):
         pass
     class NormalPokemon(Pokemon):
         pass
+    Pokemon.equivalent_to.append(FirePokemon | WaterPokemon | GrassPokemon | PoisonPokemon | FlyingPokemon | ElectricPokemon | NormalPokemon)
 
     # Pokemon species are under one or a combination of Pokemon types
     class Bulbasaur(GrassPokemon):
@@ -64,4 +67,11 @@ def createModel(onto):
     class Wartortle(WaterPokemon):
         pass
     AllDisjoint([Bulbasaur, Ivysaur, Charmeleon, Charizard, Pikachu, Zapados, Evee, Vaporeon, Jolteon, Moltres, Squirtle, Wartortle])
+    FirePokemon.equivalent_to.append(Charmeleon | Charizard | Moltres)
+    WaterPokemon.equivalent_to.append(Vaporeon | Squirtle | Wartortle)
+    GrassPokemon.equivalent_to.append(Bulbasaur | Ivysaur)
+    PoisonPokemon.equivalent_to.append(Ivysaur)
+    FlyingPokemon.equivalent_to.append(Charizard | Zapados | Moltres)
+    ElectricPokemon.equivalent_to.append(Pikachu | Zapados | Jolteon)
+    NormalPokemon.equivalent_to.append(Evee)
 
