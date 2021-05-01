@@ -25,3 +25,7 @@ def height(onto):
 def name(onto):
     #TODO
     pass
+
+def skill(onto):
+    illegalSkill = onto.Skill("action")
+    AllDifferent([illegalSkill, onto.ElectricShock, onto.ElectricField, onto.Shield, onto.Whip, onto.Harden, onto.SporeRelease, onto.FireBall, onto.WaterGun])

@@ -33,6 +33,7 @@ import inconsistency
 # inconsistency.heightAndWeight(onto)
 # inconsistency.height(onto)
 # inconsistency.name(onto)
+# inconsistency.skill(onto)
 
 '''
 REASONING

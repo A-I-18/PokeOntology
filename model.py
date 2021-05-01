@@ -174,5 +174,26 @@ def createModel(onto):
     class LegendaryPokemon(FlyingPokemon):
         equivalent_to = [FlyingPokemon & wingSpan.only(ConstrainedDatatype(float, min_exclusive = 300))]
 
-
+    class Skill(Thing):
+        namespace = onto
+    electricShock = Skill("ElectricShock")
+    electricField = Skill("ElectricField")
+    shield = Skill("Shield")
+    whip = Skill("Whip")
+    harden = Skill("Harden")
+    sporeRelease = Skill("SporeRelease")
+    fireBall = Skill("FireBall")
+    waterGun = Skill("WaterGun")
+    Skill.equivalent_to.append(OneOf([electricShock, electricField, shield, whip, harden, sporeRelease, fireBall, waterGun]))
+    with onto:
+        class hasSkill(ObjectProperty):
+            domain = [Pokemon]
+            range = [Skill]
+        ElectricPokemon.is_a.append(hasSkill.value(electricShock) & hasSkill.value(electricField))
+        PoisonPokemon.is_a.append(hasSkill.value(sporeRelease))
+        FirePokemon.is_a.append(hasSkill.value(fireBall))
+        WaterPokemon.is_a.append(hasSkill.value(waterGun) & hasSkill.value(harden))
+        FlyingPokemon.is_a.append(hasSkill.value(shield))
+        GrassPokemon.is_a.append(hasSkill.value(whip))
+        NormalPokemon.is_a.append(hasSkill.value(shield))
         
