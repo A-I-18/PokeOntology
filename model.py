@@ -2,7 +2,7 @@ from owlready2 import *
 
 def createModel(onto):
     '''
-    CLASSES DEFINITION
+    BASIC CLASSES DEFINITION
     '''
 
     # There are two main kinds of Organism: Human and Pokemon
@@ -76,7 +76,7 @@ def createModel(onto):
     NormalPokemon.equivalent_to.append(Evee)
 
     '''
-    PROPERTIES DEFINITION
+    BASIC PROPERTIES DEFINITION
     '''
             
     # A Pokemon of one kind may have a weakness to a Pokemon of another kind
@@ -161,4 +161,13 @@ def createModel(onto):
 
         # All Human have name
         Human.equivalent_to.append(fullName.some(str))
+
+    '''
+    MORE MODEL DEFINITION
+    '''
+
+    # A StarterPokemon is a Pokemon with height < 100 and weight < 100
+    class StarterPokemon(Pokemon):
+        equivalent_to = [Pokemon & height.only(ConstrainedDatatype(float, max_exclusive = 100)) & weight.only(ConstrainedDatatype(float, max_exclusive = 100))]
+
         

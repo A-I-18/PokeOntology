@@ -12,6 +12,8 @@ model.createModel(onto)
 
 import individuals
 individuals.addInstances(onto)
+import inference
+inference.addInstances(onto)
 
 # https://owlready2.readthedocs.io/en/latest/disjoint.html?highlight=close_world
 # close_world(onto)
