@@ -29,3 +29,7 @@ def name(onto):
 def skill(onto):
     illegalSkill = onto.Skill("action")
     AllDifferent([illegalSkill, onto.ElectricShock, onto.ElectricField, onto.Shield, onto.Whip, onto.Harden, onto.SporeRelease, onto.FireBall, onto.WaterGun])
+
+def pokeball(onto):
+    illegalPB = onto.NormalPokeBall()
+    illegalPB.contain = [onto.bulbasaur1, onto.charizard1]

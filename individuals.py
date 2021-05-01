@@ -4,11 +4,9 @@ def addInstances(onto):
     ai = onto.Organism("AI")
     ai.fullName = "Antonio"
 
-    # "AshKetchum" and "GaryOak", of type PokemonTrainer
     ash = onto.PokemonTrainer("AshKetchum")
     gary = onto.PokemonTrainer("GaryOak")
 
-    # "pikachu1", "charmeleon1", "charizard1", "bulbasaur1", "wartortle1" of the respective types
     pikachu = onto.Pikachu()
     charmeleon = onto.Charmeleon()
     charizard = onto.Charizard()
@@ -17,6 +15,10 @@ def addInstances(onto):
     zapdos = onto.Zapdos()
     evee = onto.Evee()
 
+    p1 = onto.NormalPotion()
+    pb1 = onto.NormalPokeBall()
+    pb2 = onto.GreatPokeBall()
+
     '''
     OBJECT PROPERTY ASSERTIONS
     '''
@@ -24,6 +26,10 @@ def addInstances(onto):
     pikachu.weakness = [bulbasaur]
 
     charmeleon.evolves = charizard
+
+    ash.possess.append(pb1)
+    gary.possess.append(p1)
+    gary.possess.append(pb2)
 
     # '''
     # DATA PROPERTY ASSERTIONS

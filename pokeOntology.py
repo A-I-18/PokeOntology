@@ -34,6 +34,13 @@ import inconsistency
 # inconsistency.height(onto)
 # inconsistency.name(onto)
 # inconsistency.skill(onto)
+# inconsistency.pokeball(onto)
+
+'''
+SAVE OWL FILES
+'''
+
+onto.save(file="pokeOntology.owl", format="ntriples")
 
 '''
 REASONING
@@ -53,7 +60,6 @@ print(list(onto.inconsistent_classes()))
 SAVE OWL FILES
 '''
 
-onto.save(file="pokeOntology.owl", format="ntriples")
 inferred.save(file="pokeOntologyInferred.owl", format="ntriples")
 
 print("\n")

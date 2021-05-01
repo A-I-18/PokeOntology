@@ -197,3 +197,37 @@ def createModel(onto):
         GrassPokemon.is_a.append(hasSkill.value(whip))
         NormalPokemon.is_a.append(hasSkill.value(shield))
         
+    # There exist different PokemonItem: Potion and PokeBall
+    class PokemonItem(Thing):
+        namespace = onto
+    class Potion(PokemonItem):
+        pass
+    class PokeBall(PokemonItem):
+        pass
+    AllDisjoint([Potion, PokeBall])
+    PokemonItem.equivalent_to.append(Potion | PokeBall)
+    # Potion can either be NormalPotion or SuperPotion
+    class NormalPotion(Potion):
+        pass
+    class SuperPotion(Potion):
+        pass
+    AllDisjoint([NormalPotion, SuperPotion])
+    Potion.equivalent_to.append(NormalPotion | SuperPotion)
+    # PokeBall can either be NormalPokeBall or GreatPokeBall
+    class NormalPokeBall(PokeBall):
+        pass
+    class GreatPokeBall(PokeBall):
+        pass
+    AllDisjoint([NormalPokeBall, GreatPokeBall])
+    PokeBall.equivalent_to.append(NormalPokeBall | GreatPokeBall)
+
+    with onto:
+        # A PokemonTrainer may possess some PokemonItem
+        class possess(ObjectProperty):
+            domain = [PokemonTrainer]
+            range = [PokemonItem]
+        # A PokeBall can contain at maximum 1 Pokemon only
+        class contain(ObjectProperty):
+            domain = [PokeBall]
+            range = [Pokemon]
+        PokeBall.is_a.append(contain.max(1))
