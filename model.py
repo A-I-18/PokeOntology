@@ -87,7 +87,7 @@ def createModel(onto):
         # WaterPokemon have weakness to ElectricPokemon or GrassPokemon
         WaterPokemon.is_a.append(weakness.only(ElectricPokemon))
         # FirePokemon have weakness to ElectricPokemon or WaterPokemon
-        FirePokemon(Pokemon).is_a.append(weakness.only(WaterPokemon))
+        FirePokemon.is_a.append(weakness.only(WaterPokemon))
         # GrassPokemon have weakness to FirePokemon or FlyingPokemon
         GrassPokemon.is_a.append(weakness.only(FirePokemon | FlyingPokemon))
         # ElectricPokemon have weakness to GrassPokemon
