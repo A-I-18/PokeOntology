@@ -52,7 +52,7 @@ def createModel(onto):
         pass
     class Pikachu(ElectricPokemon):
         pass
-    class Zapados(ElectricPokemon, FlyingPokemon):
+    class Zapdos(ElectricPokemon, FlyingPokemon):
         pass
     class Evee(NormalPokemon):
         pass
@@ -66,13 +66,13 @@ def createModel(onto):
         pass
     class Wartortle(WaterPokemon):
         pass
-    AllDisjoint([Bulbasaur, Ivysaur, Charmeleon, Charizard, Pikachu, Zapados, Evee, Vaporeon, Jolteon, Moltres, Squirtle, Wartortle])
+    AllDisjoint([Bulbasaur, Ivysaur, Charmeleon, Charizard, Pikachu, Zapdos, Evee, Vaporeon, Jolteon, Moltres, Squirtle, Wartortle])
     FirePokemon.equivalent_to.append(Charmeleon | Charizard | Moltres)
     WaterPokemon.equivalent_to.append(Vaporeon | Squirtle | Wartortle)
     GrassPokemon.equivalent_to.append(Bulbasaur | Ivysaur)
     PoisonPokemon.equivalent_to.append(Ivysaur)
-    FlyingPokemon.equivalent_to.append(Charizard | Zapados | Moltres)
-    ElectricPokemon.equivalent_to.append(Pikachu | Zapados | Jolteon)
+    FlyingPokemon.equivalent_to.append(Charizard | Zapdos | Moltres)
+    ElectricPokemon.equivalent_to.append(Pikachu | Zapdos | Jolteon)
     NormalPokemon.equivalent_to.append(Evee)
 
     '''

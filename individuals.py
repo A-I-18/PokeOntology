@@ -9,15 +9,16 @@ def addInstances(onto):
     pikachu = onto.Pikachu()
     charmeleon = onto.Charmeleon()
     charizard = onto.Charizard()
-    bulbasur = onto.Bulbasaur()
+    bulbasaur = onto.Bulbasaur()
     wartortle = onto.Wartortle()
 
     '''
     OBJECT PROPERTY ASSERTIONS
     '''
 
-    # # charmaleon1 evolves charizard1
-    # charmeleon.evolves = charizard
+    pikachu.weakness = [bulbasaur]
+
+    charmeleon.evolves = charizard
 
     # '''
     # DATA PROPERTY ASSERTIONS
@@ -25,6 +26,3 @@ def addInstances(onto):
 
     # # pikachu1 power 300
     # pikachu.power = 300
-
-    # Debugging
-    wartortle.weakness = [charmeleon]
