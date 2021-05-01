@@ -25,6 +25,12 @@ INTRODUCE INCONSISTENCIES
 import inconsistency
 # inconsistency.weakness(onto)
 # inconsistency.evolves(onto)
+# inconsistency.region(onto)
+# inconsistency.feature(onto)
+# inconsistency.wingSpan(onto)
+# inconsistency.heightAndWeight(onto)
+# inconsistency.height(onto)
+# inconsistency.name(onto)
 
 '''
 REASONING
@@ -48,5 +54,3 @@ onto.save(file="pokeOntology.owl", format="ntriples")
 inferred.save(file="pokeOntologyInferred.owl", format="ntriples")
 
 print("\n")
-
-# Debugging

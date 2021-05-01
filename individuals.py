@@ -1,6 +1,9 @@
 from owlready2 import *
 
 def addInstances(onto):
+    ai = onto.Organism("AI")
+    ai.fullName = "Antonio"
+
     # "AshKetchum" and "GaryOak", of type PokemonTrainer
     ash = onto.PokemonTrainer("AshKetchum")
     gary = onto.PokemonTrainer("GaryOak")
@@ -11,6 +14,8 @@ def addInstances(onto):
     charizard = onto.Charizard()
     bulbasaur = onto.Bulbasaur()
     wartortle = onto.Wartortle()
+    zapdos = onto.Zapdos()
+    evee = onto.Evee()
 
     '''
     OBJECT PROPERTY ASSERTIONS

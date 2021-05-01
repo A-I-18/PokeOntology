@@ -109,3 +109,56 @@ def createModel(onto):
         # Squirtle evolves to WarTortle
         Squirtle.is_a.append(evolves.only(Wartortle))
 
+    # Data-type properties
+    with onto:
+        # demographic: height, weight, age (numerical), region (string)
+        class demographic(DataProperty):
+            pass
+        class height(demographic, FunctionalProperty):
+            range = [float]
+        class weight(demographic, FunctionalProperty):
+            range = [float]
+        class age(demographic, FunctionalProperty):
+            range = [int]
+        # The region attribute is restricted to take values only from the following array ["kanto", "johto"]
+        class region(demographic, FunctionalProperty):
+            range = [OneOf(["kanto", "johto"])]
+        
+        # characteristic: power, heart, wingSpan (numerical), feature (string)
+        class characteristic(DataProperty):
+            pass
+        class power(characteristic, FunctionalProperty):
+            range = [float]
+        class heart(characteristic, FunctionalProperty):
+            range = [float]
+        class wingSpan(characteristic, FunctionalProperty):
+            range = [float]
+        # The feature attribute is restricted to take values only from the following array ["seed", "flower", "mammal", "reptile", "bird", "rodent"]
+        class feature(characteristic, FunctionalProperty):
+            range = [OneOf(["seed", "flower", "mammal", "reptile", "bird", "rodent"])]
+        
+        # name, description
+        class fullName(DataProperty, FunctionalProperty):
+            range = [str]
+        class description(DataProperty):
+            range = [str]
+
+        # A Pokemon has the attributes height, weight, power, heart, feature, region
+        Pokemon.is_a.append(height.exactly(1) & weight.exactly(1) & power.exactly(1) & heart.exactly(1) & feature.exactly(1) & region.exactly(1))
+        # A FlyingPokemon has an additional attribute: wingSpan
+        FlyingPokemon.is_a.append(wingSpan.exactly(1))
+        # Moltres and Zapdos have a property restriction on wingSpan to be > 500
+        Moltres.is_a.append(wingSpan.only(ConstrainedDatatype(float, min_exclusive = 500)))
+        Zapdos.is_a.append(wingSpan.only(ConstrainedDatatype(float, min_exclusive = 500)))
+        # Bulbasaur and Squirtle have a restriction on height < 50 and weight < 50
+        Bulbasaur.is_a.append(height.only(ConstrainedDatatype(float, max_exclusive = 50)) & weight.only(ConstrainedDatatype(float, max_exclusive = 50)))
+        Squirtle.is_a.append(height.only(ConstrainedDatatype(float, max_exclusive = 50)) & weight.only(ConstrainedDatatype(float, max_exclusive = 50)))
+        # Eevee has a property restriction on height < 100
+        Evee.is_a.append(height.only(ConstrainedDatatype(float, max_exclusive = 100)))
+
+        # A PokemonTrainer has the following attributes: height, weight, age
+        PokemonTrainer.is_a.append(height.exactly(1) & weight.exactly(1) & age.exactly(1))
+
+        # All Human have name
+        Human.equivalent_to.append(fullName.some(str))
+        

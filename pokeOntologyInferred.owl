@@ -1,0 +1,7 @@
+<http://myonto.com/pokeOntologyInferred.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://myonto.com/pokeOntology.owl#PoisonPokemon> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://myonto.com/pokeOntology.owl#GrassPokemon> .
+<http://myonto.com/pokeOntology.owl#evee1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://myonto.com/pokeOntology.owl#NormalPokemon> .
+<http://myonto.com/pokeOntology.owl#pokeOntology.Pokemon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://myonto.com/pokeOntology.owl#Pokemon> .
+<http://myonto.com/pokeOntology.owl#organism1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://myonto.com/pokeOntology.owl#Human> .
+<http://myonto.com/pokeOntology.owl#Evee> <http://www.w3.org/2002/07/owl#equivalentClass> <http://myonto.com/pokeOntology.owl#NormalPokemon> .
+<http://myonto.com/pokeOntology.owl#Ivysaur> <http://www.w3.org/2002/07/owl#equivalentClass> <http://myonto.com/pokeOntology.owl#PoisonPokemon> .
