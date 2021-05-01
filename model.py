@@ -231,3 +231,29 @@ def createModel(onto):
             domain = [PokeBall]
             range = [Pokemon]
         PokeBall.is_a.append(contain.max(1))
+
+    # A PokemonBattle has the following attributes: description, region
+    class PokemonBattle(Thing):
+        namespace = onto
+    PokemonBattle.is_a.append(description.exactly(1) & region.exactly(1))
+
+    with onto:
+        # A PokemonTrainer can participate in a PokemonBattle
+        class participateInBattle(ObjectProperty):
+            domain = [PokemonTrainer]
+            range = [PokemonBattle]
+
+    # A PokemonBattle involves some PokemonFight
+    class PokemonFight(Thing):
+        namespace = onto
+    with onto:
+        class involves(ObjectProperty):
+            domain = [PokemonBattle]
+            range = [PokemonFight]
+        PokemonBattle.is_a.append(involves.some(PokemonFight))
+
+    with onto:
+        # A Pokemon can participate in some PokemonFight
+        class participateInFight(ObjectProperty):
+            domain = [Pokemon]
+            range = [PokemonFight]

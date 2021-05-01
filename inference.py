@@ -1,6 +1,9 @@
 from owlready2 import *
 
 def addInstances(onto):
+    ai = onto.Organism("AI")
+    ai.fullName = "Antonio"
+
     starter = onto.Pokemon("turtle")
     starter.height = 25
     starter.weight = 49
