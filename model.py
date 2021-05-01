@@ -132,6 +132,7 @@ def createModel(onto):
         class heart(characteristic, FunctionalProperty):
             range = [float]
         class wingSpan(characteristic, FunctionalProperty):
+            domain = [FlyingPokemon]
             range = [float]
         # The feature attribute is restricted to take values only from the following array ["seed", "flower", "mammal", "reptile", "bird", "rodent"]
         class feature(characteristic, FunctionalProperty):
@@ -169,5 +170,9 @@ def createModel(onto):
     # A StarterPokemon is a Pokemon with height < 100 and weight < 100
     class StarterPokemon(Pokemon):
         equivalent_to = [Pokemon & height.only(ConstrainedDatatype(float, max_exclusive = 100)) & weight.only(ConstrainedDatatype(float, max_exclusive = 100))]
+    # A LegendaryPokemon is a FlyingPokemon with wingSpan > 300
+    class LegendaryPokemon(FlyingPokemon):
+        equivalent_to = [FlyingPokemon & wingSpan.only(ConstrainedDatatype(float, min_exclusive = 300))]
+
 
         
