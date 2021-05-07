@@ -31,6 +31,7 @@ WHERE {
     ?pokeball pokeOntology:contain ?pokemon .
 }
 GROUP BY ?trainer
+ORDER BY DESC(?count)
 
 # Retrives BeginnerPokemonTrainer, Human that possesses a PokeBall that contains a StarterPokemon and has an age less than 12
 SELECT DISTINCT ?human
