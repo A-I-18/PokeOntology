@@ -44,6 +44,16 @@ WHERE {
     FILTER(?a < "12"^^xsd:int) .
 }
 
+# Retrives all the Pokemon which does not have an evolution
+SELECT ?pokemon
+WHERE {
+    ?pokemon rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:Pokemon .
+    FILTER NOT EXISTS {
+        ?pokemon pokeOntology:evolves ?evolution .
+    }
+}
+
 # Retrives all the victors of each PokemonFight: a victor is the PokemonTrainer possessing the pokemon with greater power in the fight
 SELECT ?fight ?victor
 WHERE {
