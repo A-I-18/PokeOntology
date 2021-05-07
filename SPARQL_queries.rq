@@ -19,8 +19,7 @@ WHERE {
     ?human rdf:type ?type .
     ?type rdfs:subClassOf* pokeOntology:Human .
     OPTIONAL {
-        ?human pokeOntology:possess ?pokeball .
-        ?pokeball pokeOntology:contain ?pokemon .
+        ?human pokeOntology:possess/pokeOntology:contain ?pokemon .
     }
 }
 
