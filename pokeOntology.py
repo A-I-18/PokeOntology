@@ -1,4 +1,8 @@
 from owlready2 import *
+import model
+import individuals
+import inference
+import query
 
 '''
 CREATE ONTOLOGY
@@ -7,13 +11,11 @@ CREATE ONTOLOGY
 # Create new empty ontology specifing its IRI
 onto = get_ontology("http://myonto.com/pokeOntology.owl")
 
-import model
 model.createModel(onto)
 
-import individuals
 individuals.addInstances(onto)
-import inference
 inference.addInstances(onto)
+query.addInstances(onto)
 
 # https://owlready2.readthedocs.io/en/latest/disjoint.html?highlight=close_world
 # close_world(onto)
@@ -42,6 +44,7 @@ SAVE OWL FILES
 
 onto.save(file="pokeOntology.owl", format="ntriples")
 
+#TODO Scommentami!
 '''
 REASONING
 '''
@@ -63,3 +66,9 @@ SAVE OWL FILES
 inferred.save(file="pokeOntologyInferred.owl", format="ntriples")
 
 print("\n")
+
+'''
+QUERYING ONTOLOGY
+'''
+
+query.executeQuery(onto)

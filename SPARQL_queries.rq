@@ -1,0 +1,58 @@
+# Counts the classes in the ontology
+SELECT (COUNT(?x) AS ?count)
+WHERE {
+    ?x a owl:Class . 
+}
+
+# Retrives SuperPokeBall, PokeBall with a weight greater than 100
+SELECT DISTINCT ?pokeball 
+WHERE {
+    ?pokeball rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:PokeBall .
+    ?pokeball pokeOntology:weight ?w .
+    FILTER(?w > "100"^^xsd:float) .
+}
+
+# Retrives all the Human and, optionally, his Pokemon: a human possessing a pokeball which contains a certain pokemon has that pokemon
+SELECT ?human ?pokemon
+WHERE {
+    ?human rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:Human .
+    OPTIONAL {
+        ?human pokeOntology:possess ?pokeball .
+        ?pokeball pokeOntology:contain ?pokemon .
+    }
+}
+
+# Counts the Pokemon each PokemonTrainer has
+SELECT ?trainer (COUNT(DISTINCT ?pokemon) AS ?count)
+WHERE {
+    ?trainer pokeOntology:possess ?pokeball .
+    ?pokeball pokeOntology:contain ?pokemon .
+}
+GROUP BY ?trainer
+
+# Retrives BeginnerPokemonTrainer, Human that possesses a PokeBall that contains a StarterPokemon and has an age less than 12
+SELECT DISTINCT ?human
+WHERE {
+    ?human rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:Human .
+    ?human pokeOntology:possess ?pokeball .
+    ?pokeball pokeOntology:contain ?pokemon .
+    ?pokemon rdf:type pokeOntology:StarterPokemon .
+    ?human pokeOntology:age ?a .
+    FILTER(?a < "12"^^xsd:int) .
+}
+
+# Retrives all the victors of each PokemonFight: a victor is the PokemonTrainer possessing the pokemon with greater power in the fight
+SELECT ?fight ?victor
+WHERE {
+    ?pokemon1 pokeOntology:participateInFight ?fight .
+    ?pokemon2 pokeOntology:participateInFight ?fight .
+    ?pokemon1 pokeOntology:power ?p1 .
+    ?pokemon2 pokeOntology:power ?p2 .
+    FILTER(?p1 > ?p2) .
+    ?victor pokeOntology:possess ?pokeball .
+    ?pokeball pokeOntology:contain ?pokemon1 .
+}
+
