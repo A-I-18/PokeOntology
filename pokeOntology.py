@@ -67,6 +67,13 @@ print(
 '''
 )
 
+# Isolating ontology before reasoning
+print("Creating new world for isolating ontology before reasoning ...")
+worldBR = World()
+onto_path.append(os.getcwd())
+worldBR.get_ontology("http://myonto.com/pokeOntology.owl").load()
+print("... Done!\n")
+
 # Create new empty ontology specifing its IRI
 inferred = get_ontology("http://myonto.com/pokeOntologyInferred.owl")
 with inferred:
@@ -89,4 +96,4 @@ print(
 '''
 )
 
-query.executeQuery(onto)
+query.executeQuery(worldBR)
