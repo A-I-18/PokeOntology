@@ -3,6 +3,7 @@ import model
 import individuals
 import inference
 import query
+import visualize
 
 '''
 CREATE ONTOLOGY
@@ -19,8 +20,6 @@ query.addInstances(onto)
 
 # https://owlready2.readthedocs.io/en/latest/disjoint.html?highlight=close_world
 # close_world(onto)
-
-print("\n")
 
 '''
 INTRODUCE INCONSISTENCIES
@@ -39,12 +38,19 @@ import inconsistency
 # inconsistency.pokeball(onto)
 
 '''
-SAVE OWL FILES
+SAVE OWL FILE
 '''
 
 onto.save(file="pokeOntology.owl", format="ntriples")
 
-#TODO Scommentami!
+'''
+PRINT MODEL
+'''
+
+visualize.printModel(onto)
+print("\n")
+
+
 '''
 REASONING
 '''
