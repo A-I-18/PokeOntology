@@ -57,8 +57,8 @@ print("\n", end="")
 PRINT MODEL
 '''
 
-# visualize.printModel(onto)
-# print("\n")
+visualize.printModel(onto)
+print("\n", end="")
 
 
 print(
