@@ -60,7 +60,14 @@ In the root of the project:
 python pokeOntology.py
 ```
 # Project Structure <a name="structure"></a>
-[TODO]
+
+The entry point of the application is the script pokeOntology.py, which exploits the following modules:
+- model.py, it creates the ontology, defining its classes, its properties and all the axioms of the knowledge-base
+- individuals.py, it adds basic individuals to the ontology, respecting its semantics
+- inference.py, it adds individuals to the ontolgy following the criterion of defining instances whose knowledge about should be enanched by the reasoner
+- query.py, it adds individuals to the ontology following the criterion of defining instances that sholud be retrived by specific queries and it executes SPARQL queries read from the SPARQL_queries.rq file
+- inconsistency.py, it adds individuals to the ontology following the criterion of defining instances that sholud cause the model to become inconsistent
+- visualize.py, it prints the model having care of showing all the aspects of the modeled knowledge
 
 # Usage <a name="usage"></a>
 
