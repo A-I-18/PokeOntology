@@ -12,19 +12,16 @@
   <br /> 
 </p>
 
-## 📝 Table of Contents
+# 📝 Table of Contents
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
+- [Project Structure](#structure)
 - [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
+- [Author](#author)
 - [Acknowledgments](#acknowledgement)
 
-## 🧐 About <a name = "about"></a>
+# About <a name = "about"></a>
 
 -----Write about 1-2 paragraphs describing the purpose of your project.
 
@@ -34,11 +31,18 @@ The aim of the project is to realize a practical exercise of Knowledge Represent
 
 The project consists in a Python application, exploiting the Owlready2 framework, which manages from skratch an OWL ontology. The Pokemon fictional universe is used as context.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+# Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Built Using
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [VueJs](https://vuejs.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+
+## Prerequisites
 
 What things you need to install the software and how to install them.
 
@@ -48,64 +52,55 @@ For running the application, essentially, only python3 and Owlready2 framework a
 pip install Owlready2
 ```
 
-### Run
+## Run
 
 In the root of the project:
 
 ```
 python pokeOntology.py
 ```
+# Project Structure <a name="structure"></a>
+[TODO]
 
-## 🎈 Usage <a name="usage"></a>
+# Usage <a name="usage"></a>
 
 The execution of the program follows these steps
 
-#### 1. Ontology Creation
+## 1. Ontology Creation
 
 The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntology.owl is created and saved in the file pokeOntology.owl, adopting NTriples format.
 
-##### Ontology Classes
+### Ontology Classes
 [TODO]
-##### Ontology Disjointness
+### Ontology Disjointness
 [TODO]
-##### Ontology Object Properties
+### Ontology Object Properties
 [TODO]
-##### Ontology Data Properties
+### Ontology Data Properties
 [TODO]
-##### Ontology Inconsistencies
+### Ontology Inconsistencies
 Optionally, inconsistencies might be added to the ontolgy in creation with the aim of checking the modeled semantics.
 [TODO]
 
-#### 2. Reasoning
+## 2. Reasoning
 
 A separate world is instantiated for isolating ontology before reasoning, then HermiT reasoner is executed, obtaining the following results
 [TODO]
 
 The inferred ontology is saved in file pokeOntologyInferred.owl
 
-#### 3. Querying Ontology
+## 3. Querying Ontology
 
 The following SPARQL queries are executed on the two worlds: ontology after reasoning, ontology before reasoning
 [TODO]
 
-## 🚀 Deployment <a name = "deployment"></a>
-
-Add additional notes about how to deploy this on a live system.
-
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
+# Author <a name = "author"></a>
 
 - [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
 
 See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+# Acknowledgements <a name = "acknowledgement"></a>
 
 - Hat tip to anyone whose code was used
 - Inspiration
