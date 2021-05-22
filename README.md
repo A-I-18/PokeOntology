@@ -58,7 +58,35 @@ python pokeOntology.py
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+The execution of the program follows these steps
+
+#### 1. Ontology Creation
+
+The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntology.owl is created and saved in the file pokeOntology.owl, adopting NTriples format.
+
+##### Ontology Classes
+[TODO]
+##### Ontology Disjointness
+[TODO]
+##### Ontology Object Properties
+[TODO]
+##### Ontology Data Properties
+[TODO]
+##### Ontology Inconsistencies
+Optionally, inconsistencies might be added to the ontolgy in creation with the aim of checking the modeled semantics.
+[TODO]
+
+#### 2. Reasoning
+
+A separate world is instantiated for isolating ontology before reasoning, then HermiT reasoner is executed, obtaining the following results
+[TODO]
+
+The inferred ontology is saved in file pokeOntologyInferred.owl
+
+#### 3. Querying Ontology
+
+The following SPARQL queries are executed on the two worlds: ontology after reasoning, ontology before reasoning
+[TODO]
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
