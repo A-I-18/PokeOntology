@@ -99,12 +99,8 @@ The following [SPARQL queries](/SPARQL_queries.rq) are executed on the two world
 
 # Author <a name = "author"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+[Antonio Ionta](https://www.linkedin.com/in/antonio-ionta-a349b515a/) - Idea & Implementation
 
 # Acknowledgements <a name = "acknowledgement"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+Inspiration and references [here](/links.txt)
