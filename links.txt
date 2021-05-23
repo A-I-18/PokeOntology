@@ -1,0 +1,57 @@
+# Dataset
+
+https://maulik-kamdar.com/2018/03/12/fictional-universes-and-owl-part-i/
+
+https://www.stardog.com/tutorials/data-model/
+
+https://github.com/whanley/RDF-tutorial/blob/master/making-a-small-rdf-database.md
+
+# Tool
+
+https://jena.apache.org/
+https://www.youtube.com/user/betacoding/search?query=jena
+
+https://stackoverflow.com/questions/54049750/does-jena-api-support-owl-2
+https://github.com/owlcs/ont-api
+
+https://bitbucket.org/jibalamy/owlready2/src/master/
+
+http://www.visualdataweb.de/webvowl/
+
+https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+# Owlready2
+
+https://pypi.org/project/Owlready2/
+https://bitbucket.org/jibalamy/owlready2/src/master/
+
+https://owlready2.readthedocs.io/en/latest/
+
+https://github.com/shazz/Owlready2_sandbox
+https://github.com/theThing92/flight_information_ontology
+
+# Python
+
+https://www.programiz.com/python-programming/generator
+
+https://stackoverflow.com/questions/1369526/what-is-the-python-keyword-with-used-for
+
+https://www.w3schools.com/python/ref_keyword_pass.asp
+
+https://mkyong.com/python/python-how-to-loop-a-dictionary/
+
+https://stackoverflow.com/questions/830855/what-regex-would-capture-everything-from-mark-to-the-end-of-a-line/830887
+
+# OWL/Protege
+
+http://protege-project.136.n4.nabble.com/How-to-correctly-build-a-min-cardinality-restriction-td4670944.html
+
+https://ontology101tutorial.readthedocs.io/en/latest/index.html
+
+https://www.stardog.com/tutorials/sparql
+
+https://en.wikibooks.org/wiki/SPARQL
+
+https://stackoverflow.com/questions/9209577/sparql-get-all-the-entities-of-subclasses-of-a-certain-class
+
+https://protegewiki.stanford.edu/wiki/DLQueryTab
