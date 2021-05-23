@@ -61,7 +61,7 @@ The entry point of the application is the script pokeOntology.py, which exploits
 - [model.py](/model.py), it creates the ontology, defining its classes, its properties and all the axioms of the knowledge-base
 - [individuals.py](/individuals.py), it adds basic individuals to the ontology, respecting its semantics
 - [inference.py](/inference.py), it adds individuals to the ontolgy following the criterion of defining instances whose knowledge about should be enanched by the reasoner
-- [query.py](/query.py), it adds individuals to the ontology following the criterion of defining instances that sholud be retrived by specific queries and it executes SPARQL queries read from the SPARQL_queries.rq file
+- [query.py](/query.py), it adds individuals to the ontology following the criterion of defining instances that sholud be retrived by specific queries and it executes SPARQL queries read from the [SPARQL_queries.rq](/SPARQL_queries.rq) file
 - [inconsistency.py](/inconsistency.py), it adds individuals to the ontology following the criterion of defining instances that sholud cause the model to become inconsistent
 - [visualize.py](/visualize.py), it prints the model having care of showing all the aspects of the modeled knowledge
 
