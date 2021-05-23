@@ -57,7 +57,7 @@ python pokeOntology.py
 ```
 # Project Structure <a name="structure"></a>
 
-The entry point of the application is the script pokeOntology.py, which exploits the following modules:
+The entry point of the application is the script [pokeOntology.py](/pokeOntology.py), which exploits the following modules:
 - [model.py](/model.py), it creates the ontology, defining its classes, its properties and all the axioms of the knowledge-base
 - [individuals.py](/individuals.py), it adds basic individuals to the ontology, respecting its semantics
 - [inference.py](/inference.py), it adds individuals to the ontolgy following the criterion of defining instances whose knowledge about should be enanched by the reasoner
