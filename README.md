@@ -1,9 +1,6 @@
 <p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="/PokeOntology-Logo.jpeg" alt="Project logo"></a>
+  <img width=260px height=260px src="/PokeOntology-Logo.png" alt="Project logo">
 </p>
-
-<h1 align="center">PokeOntology</h1>
 
 ---
 
