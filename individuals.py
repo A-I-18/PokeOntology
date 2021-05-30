@@ -6,7 +6,9 @@ def addInstances(onto):
     '''
     
     ash = onto.PokemonTrainer("AshKetchum")
+    ash.seeAlso = "http://bulbapedia.bulbagarden.net/wiki/Ash_Ketchum"
     gary = onto.PokemonTrainer("GaryOak")
+    gary.seeAlso = "http://bulbapedia.bulbagarden.net/wiki/Gary_Oak"
 
     pikachu = onto.Pikachu("Ashs_Pikachu")
     wartortle = onto.Wartortle("Ashs_Wartortle")
@@ -38,6 +40,7 @@ def addInstances(onto):
     gary.possess = [pb4, pb5, pb6]
 
     battle = onto.PokemonBattle("Ash_vs_Gary")
+    battle.seeAlso = "http://bulbapedia.bulbagarden.net/wiki/EP269"
     f1 = onto.PokemonFight("wartortle_vs_evee")
     f2 = onto.PokemonFight("pikachu_vs_zapdos")
     f3 = onto.PokemonFight("charizard_vs_charizard")

@@ -2,6 +2,12 @@ def printModel(onto):
     print("\n>>> ONTOLOGY CLASSES:\n")
     for c in (onto.classes()):
         print("# Class: {}".format(c))
+        altLabel = c.label
+        comment = c.comment
+        if altLabel:
+            print("\taltLabel = {}".format(altLabel))
+        if comment:
+            print("\tcomment = {}".format(comment))
         eqt = c.equivalent_to
         if eqt:
             print("\tequivalent_to = {}".format(eqt))
@@ -16,6 +22,9 @@ def printModel(onto):
         print("\tIndividuals:")
         for i in ins:
             print("\t\t- {}".format(i))
+            seeAlso = i.seeAlso
+            if seeAlso:
+                print("\t\t\tseeAlso = {}".format(seeAlso))    
 
     print("\n>>> ONTOLOGY DISJOINTNESS:\n")
     for disc in onto.disjoint_classes():

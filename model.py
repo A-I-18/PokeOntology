@@ -257,3 +257,13 @@ def createModel(onto):
         class participateInFight(ObjectProperty):
             domain = [Pokemon]
             range = [PokemonFight]
+
+    '''
+    ANNOTATIONS DEFINITION
+    '''
+
+    Pokemon.label = "Pocket Monster"
+    Pokemon.comment = "Fantasy creatures in the Pokemon world, drawn as if mutated from real-world creatures"
+
+    PokemonTrainer.label = "Pokemon Battle player"
+    PokemonTrainer.comment = "Trains Pokemon to fight battles with other Trainers, and capture other Pokemon"
