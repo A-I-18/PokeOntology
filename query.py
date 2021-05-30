@@ -20,7 +20,7 @@ def addInstances(onto):
     victor = onto.PokemonTrainer("victor", possess=[victorPb])
     # loser = onto.PokemonTrainer("loser", possess=[loserPb])
 
-def executeQuery(onto):
+def executeQuery(worldBR):
     # Reading file with queries in a single string
     with open("SPARQL_queries.rq", "r") as read_file:
         data = read_file.read()
@@ -31,4 +31,6 @@ def executeQuery(onto):
     for i in range(1, len(queries)):
         print("----------{}".format(queries[i]), end='')
         result = list(default_world.sparql(queries[i]))
-        print("result = {}\n----------".format(result))
+        resultBR = list(worldBR.sparql(queries[i]))
+        print("result =\n{}".format(result))
+        print("result before reasoning =\n{}\n----------".format(resultBR))

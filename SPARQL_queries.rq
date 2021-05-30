@@ -45,7 +45,7 @@ WHERE {
 }
 
 # Retrives all the Pokemon which does not have an evolution
-SELECT ?pokemon
+SELECT DISTINCT ?pokemon
 WHERE {
     ?pokemon rdf:type ?type .
     ?type rdfs:subClassOf* pokeOntology:Pokemon .
