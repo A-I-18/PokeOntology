@@ -601,11 +601,61 @@ The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntolog
 	Domain: []
 	Range: [<class 'str'>]
 	Instances:
-### Ontology Inconsistencies
-Optionally, inconsistencies might be added to the ontolgy in creation with the aim of checking the modeled semantics.
-[TODO]
+	
+## 2. Ontology Inconsistencies
+Optionally, inconsistencies might be [added](/inconsistency.py) to the ontolgy in creation with the aim of checking the modeled semantics.
 
-## 2. Reasoning
+```
+onto.pikachu1.weakness = [onto.charmeleon1]
+```
+violates *ElectricPokemon.is_a.append(weakness.only(GrassPokemon))*
+
+```
+onto.charmeleon1.evolves = onto.pikachu1
+```
+violates *Charmeleon.is_a.append(evolves.only(Charizard))*
+
+```
+onto.pikachu1.region = "latina"
+```
+violates *class region(demographic, FunctionalProperty):
+            range = [OneOf(["kanto", "johto"])]*
+
+```
+onto.charizard1.feature = "dragon"
+```
+violates *class feature(characteristic, FunctionalProperty):
+            range = [OneOf(["seed", "flower", "mammal", "reptile", "bird", "rodent"])]*
+
+```
+onto.zapdos1.wingSpan = 499
+```
+violates *Zapdos.is_a.append(wingSpan.only(ConstrainedDatatype(float, min_exclusive = 500)))*
+
+```
+onto.bulbasaur1.height = 10
+onto.bulbasaur1.weight = 55
+```
+violates *Bulbasaur.is_a.append(height.only(ConstrainedDatatype(float, max_exclusive = 50)) & weight.only(ConstrainedDatatype(float, max_exclusive = 50)))*
+
+```
+onto.evee1.height = 202
+```
+violates *Evee.is_a.append(height.only(ConstrainedDatatype(float, max_exclusive = 100)))*
+
+```
+illegalSkill = onto.Skill("action")
+AllDifferent([illegalSkill, onto.ElectricShock, onto.ElectricField, onto.Shield, onto.Whip, onto.Harden, onto.SporeRelease, onto.FireBall, onto.WaterGun])
+```
+violates *Skill.equivalent_to.append(OneOf([electricShock, electricField, shield, whip, harden, sporeRelease, fireBall, waterGun]))*
+
+```
+illegalPB = onto.NormalPokeBall()
+illegalPB.contain = [onto.bulbasaur1, onto.charizard1]
+```
+violates *PokeBall.is_a.append(contain.max(1))*
+
+## 3. Reasoning
 
 A separate world is instantiated for isolating ontology before reasoning, then [HermiT](http://www.hermit-reasoner.com/) reasoner is executed, obtaining the following results:
 #### Equivalenting
@@ -668,7 +718,7 @@ A separate world is instantiated for isolating ontology before reasoning, then [
 
 The inferred ontology is saved in file [pokeOntologyInferred.owl](/pokeOntologyInferred.owl)
 
-## 3. Querying Ontology
+## 4. Querying Ontology
 
 The following [SPARQL queries](/SPARQL_queries.rq) are executed on the two worlds: ontology after reasoning, ontology before reasoning
 
