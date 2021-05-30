@@ -837,6 +837,27 @@ WHERE {
 
 **Result before reasoning =**\
 [[pokeOntology.wartortle_vs_evee, pokeOntology.GaryOak], [pokeOntology.pikachu_vs_zapdos, pokeOntology.AshKetchum], [pokeOntology.charizard_vs_charizard, pokeOntology.AshKetchum], [pokeOntology.pokemonfight1, pokeOntology.victor]]
+```
+# Retrives the number of victories each PokemonTrainer has obtained in each PokemonBattle
+
+SELECT ?battle ?trainer (COUNT(?pokemon1) AS ?nVictories)
+WHERE {
+    ?trainer pokeOntology:participateInBattle ?battle .
+    ?battle pokeOntology:involves ?fight .
+    ?trainer pokeOntology:possess/pokeOntology:contain ?pokemon1 .
+    ?pokemon1 pokeOntology:participateInFight ?fight .
+    ?pokemon2 pokeOntology:participateInFight ?fight .
+    ?pokemon1 pokeOntology:power ?p1 .
+    ?pokemon2 pokeOntology:power ?p2 .
+    FILTER(?p1 > ?p2) .
+}
+GROUP BY ?battle ?trainer
+```
+**Result after reasoning =**\
+[[pokeOntology.Ash_vs_Gary, pokeOntology.AshKetchum, 2], [pokeOntology.Ash_vs_Gary, pokeOntology.GaryOak, 1]]
+
+**Result before reasoning =**\
+[[pokeOntology.Ash_vs_Gary, pokeOntology.AshKetchum, 2], [pokeOntology.Ash_vs_Gary, pokeOntology.GaryOak, 1]]
 
 # Author <a name = "author"></a>
 
