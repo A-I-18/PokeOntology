@@ -623,12 +623,12 @@ _:186 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://myonto.com/pokeOnto
 <http://myonto.com/pokeOntology.owl#greatpokeball2> <http://myonto.com/pokeOntology.owl#contain> <http://myonto.com/pokeOntology.owl#Garys_Evee> .
 <http://myonto.com/pokeOntology.owl#pokeball1> <http://myonto.com/pokeOntology.owl#contain> <http://myonto.com/pokeOntology.owl#Garys_Zapdos> .
 <http://myonto.com/pokeOntology.owl#pokeball2> <http://myonto.com/pokeOntology.owl#contain> <http://myonto.com/pokeOntology.owl#Garys_Charizard> .
-<http://myonto.com/pokeOntology.owl#AshKetchum> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#normalpokeball1> .
 <http://myonto.com/pokeOntology.owl#AshKetchum> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#normalpokeball2> .
 <http://myonto.com/pokeOntology.owl#AshKetchum> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#greatpokeball1> .
-<http://myonto.com/pokeOntology.owl#GaryOak> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#pokeball2> .
+<http://myonto.com/pokeOntology.owl#AshKetchum> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#normalpokeball1> .
 <http://myonto.com/pokeOntology.owl#GaryOak> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#pokeball1> .
 <http://myonto.com/pokeOntology.owl#GaryOak> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#greatpokeball2> .
+<http://myonto.com/pokeOntology.owl#GaryOak> <http://myonto.com/pokeOntology.owl#possess> <http://myonto.com/pokeOntology.owl#pokeball2> .
 <http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://myonto.com/pokeOntology.owl#PokemonBattle> .
 <http://myonto.com/pokeOntology.owl#wartortle_vs_evee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -645,9 +645,9 @@ _:186 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://myonto.com/pokeOnto
 <http://myonto.com/pokeOntology.owl#Garys_Zapdos> <http://myonto.com/pokeOntology.owl#participateInFight> <http://myonto.com/pokeOntology.owl#pikachu_vs_zapdos> .
 <http://myonto.com/pokeOntology.owl#Ashs_Charizard> <http://myonto.com/pokeOntology.owl#participateInFight> <http://myonto.com/pokeOntology.owl#charizard_vs_charizard> .
 <http://myonto.com/pokeOntology.owl#Garys_Charizard> <http://myonto.com/pokeOntology.owl#participateInFight> <http://myonto.com/pokeOntology.owl#charizard_vs_charizard> .
+<http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://myonto.com/pokeOntology.owl#involves> <http://myonto.com/pokeOntology.owl#wartortle_vs_evee> .
 <http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://myonto.com/pokeOntology.owl#involves> <http://myonto.com/pokeOntology.owl#charizard_vs_charizard> .
 <http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://myonto.com/pokeOntology.owl#involves> <http://myonto.com/pokeOntology.owl#pikachu_vs_zapdos> .
-<http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://myonto.com/pokeOntology.owl#involves> <http://myonto.com/pokeOntology.owl#wartortle_vs_evee> .
 <http://myonto.com/pokeOntology.owl#Ashs_Mother> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://myonto.com/pokeOntology.owl#Ashs_Mother> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://myonto.com/pokeOntology.owl#SimpleHuman> .
 <http://myonto.com/pokeOntology.owl#bulbasaur1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -781,12 +781,19 @@ _:143 <http://www.w3.org/2001/XMLSchema#minExclusive> "300"^^<http://www.w3.org/
 _:180 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 _:182 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 _:183 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://myonto.com/pokeOntology.owl#Pokemon> <http://www.w3.org/2000/01/rdf-schema#label> "Pocket Monster"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://myonto.com/pokeOntology.owl#Pokemon> <http://www.w3.org/2000/01/rdf-schema#comment> "Fantasy creatures in the Pokemon world, drawn as if mutated from real-world creatures"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://myonto.com/pokeOntology.owl#PokemonTrainer> <http://www.w3.org/2000/01/rdf-schema#label> "Pokemon Battle player"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://myonto.com/pokeOntology.owl#PokemonTrainer> <http://www.w3.org/2000/01/rdf-schema#comment> "Trains Pokemon to fight battles with other Trainers, and capture other Pokemon"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://myonto.com/pokeOntology.owl#AshKetchum> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://bulbapedia.bulbagarden.net/wiki/Ash_Ketchum"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://myonto.com/pokeOntology.owl#GaryOak> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://bulbapedia.bulbagarden.net/wiki/Gary_Oak"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://myonto.com/pokeOntology.owl#Ashs_Pikachu> <http://myonto.com/pokeOntology.owl#power> "105"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://myonto.com/pokeOntology.owl#Ashs_Wartortle> <http://myonto.com/pokeOntology.owl#power> "50"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://myonto.com/pokeOntology.owl#Ashs_Charizard> <http://myonto.com/pokeOntology.owl#power> "101"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://myonto.com/pokeOntology.owl#Garys_Evee> <http://myonto.com/pokeOntology.owl#power> "65"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://myonto.com/pokeOntology.owl#Garys_Zapdos> <http://myonto.com/pokeOntology.owl#power> "100"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://myonto.com/pokeOntology.owl#Garys_Charizard> <http://myonto.com/pokeOntology.owl#power> "95"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://myonto.com/pokeOntology.owl#Ash_vs_Gary> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://bulbapedia.bulbagarden.net/wiki/EP269"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://myonto.com/pokeOntology.owl#AI> <http://myonto.com/pokeOntology.owl#fullName> "Antonio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://myonto.com/pokeOntology.owl#turtle> <http://myonto.com/pokeOntology.owl#height> "25"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://myonto.com/pokeOntology.owl#turtle> <http://myonto.com/pokeOntology.owl#weight> "49"^^<http://www.w3.org/2001/XMLSchema#integer> .
