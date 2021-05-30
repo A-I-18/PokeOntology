@@ -19,6 +19,7 @@ https://bitbucket.org/jibalamy/owlready2/src/master/
 http://www.visualdataweb.de/webvowl/
 
 https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md
 
 # Owlready2
 
