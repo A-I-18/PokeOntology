@@ -13,8 +13,19 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
+	- [Built Using](#built)
+	- [Prerequisites](#prerequisites)
+	- [Run](#run)
 - [Project Structure](#structure)
 - [Usage](#usage)
+	1. [Ontology Creation](#onto_creation)
+		- [Ontology Classes](#onto_classes)
+		- [Ontology Disjointness](#onto_disjoint)
+		- [Ontology Object Properties](#onto_oprops)
+		- [Ontology Data Properties](#onto_dprops)
+	2. [Ontology Inconsistencies](#onto_incons)
+	3. [Reasoning](#reasoning)
+	4. [Querying Ontology](#query) 
 - [Author](#author)
 - [Acknowledgments](#acknowledgement)
 
@@ -30,12 +41,12 @@ The project consists in a Python application, exploiting the Owlready2 framework
 
 These instructions will get you a copy of the project up and running on your local machine.
 
-## Built Using
+## Built Using <a name = "built"></a>
 
 - [Python3](https://www.python.org/) - Programming Language
 - [Owlready2](https://pypi.org/project/Owlready2/) - A package for ontology-oriented programming in Python: load OWL 2.0 ontologies as Python objects, modify them, save them, and perform reasoning via HermiT. Includes an optimized RDF quadstore. [Documentation](https://owlready2.readthedocs.io/en/latest/index.html) | [Project Repository](https://bitbucket.org/jibalamy/owlready2/src/master/)
 
-## Prerequisites
+## Prerequisites <a name = "prerequisites"></a>
 
 What things you need to install the software and how to install them.
 
@@ -45,7 +56,7 @@ For running the application, essentially, only [python3](https://www.python.org/
 pip install Owlready2
 ```
 
-## Run
+## Run <a name = "run"></a>
 
 In the root of the project:
 
@@ -66,11 +77,11 @@ The entry point of the application is the script [pokeOntology.py](/pokeOntology
 
 The execution of the program follows these steps
 
-## 1. Ontology Creation
+## 1. Ontology Creation <a name = "onto_creation"></a>
 
 The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntology.owl is created and saved in the file [pokeOntology.owl](/pokeOntology.py), adopting NTriples format.
 
-### Ontology Classes
+### Ontology Classes <a name = "onto_classes"></a>
 #### Class: pokeOntology.Organism
 	equivalent_to = [pokeOntology.Human | pokeOntology.Pokemon]
 	is_a = [owl.Thing]
@@ -430,14 +441,14 @@ The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntolog
 		- pokeOntology.charizard_vs_charizard
 		- pokeOntology.pokemonfight1
 
-### Ontology Disjointness
+### Ontology Disjointness <a name = "onto_disjoint"></a>
 - AllDisjoint([pokeOntology.Bulbasaur, pokeOntology.Ivysaur, pokeOntology.Charmeleon, pokeOntology.Charizard, pokeOntology.Pikachu, pokeOntology.Zapdos, pokeOntology.Evee, pokeOntology.Vaporeon, pokeOntology.Jolteon, pokeOntology.Moltres, pokeOntology.Squirtle, pokeOntology.Wartortle])
 - AllDisjoint([pokeOntology.Human, pokeOntology.Pokemon])
 - AllDisjoint([pokeOntology.PokemonTrainer, pokeOntology.SimpleHuman])
 - AllDisjoint([pokeOntology.Potion, pokeOntology.PokeBall])
 - AllDisjoint([pokeOntology.NormalPotion, pokeOntology.SuperPotion])
 - AllDisjoint([pokeOntology.NormalPokeBall, pokeOntology.GreatPokeBall])
-### Ontology Object Properties
+### Ontology Object Properties <a name = "onto_oprops"></a>
 #### Object Property: pokeOntology.weakness
 	Domain: [pokeOntology.Pokemon]
 	Range: [pokeOntology.Pokemon]
@@ -535,7 +546,7 @@ The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntolog
 		- (pokeOntology.Garys_Charizard, pokeOntology.charizard_vs_charizard)
 		- (pokeOntology.pokemon1, pokeOntology.pokemonfight1)
 		- (pokeOntology.pokemon2, pokeOntology.pokemonfight1)
-### Ontology Data Properties
+### Ontology Data Properties <a name = "onto_dprops"></a>
 #### Data Property: pokeOntology.demographic
 	Domain: []
 	Range: []
@@ -602,7 +613,7 @@ The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntolog
 	Range: [<class 'str'>]
 	Instances:
 	
-## 2. Ontology Inconsistencies
+## 2. Ontology Inconsistencies <a name = "onto_incons"></a>
 Optionally, inconsistencies might be [added](/inconsistency.py) to the ontolgy in creation with the aim of checking the modeled semantics.
 
 ```
@@ -655,7 +666,7 @@ illegalPB.contain = [onto.bulbasaur1, onto.charizard1]
 ```
 violates *PokeBall.is_a.append(contain.max(1))*
 
-## 3. Reasoning
+## 3. Reasoning <a name = "reasoning"></a>
 
 A separate world is instantiated for isolating ontology before reasoning, then [HermiT](http://www.hermit-reasoner.com/) reasoner is executed, obtaining the following results:
 #### Equivalenting
@@ -718,7 +729,7 @@ A separate world is instantiated for isolating ontology before reasoning, then [
 
 The inferred ontology is saved in file [pokeOntologyInferred.owl](/pokeOntologyInferred.owl)
 
-## 4. Querying Ontology
+## 4. Querying Ontology <a name = "query"></a>
 
 The following [SPARQL queries](/SPARQL_queries.rq) are executed on the two worlds: ontology after reasoning, ontology before reasoning
 
