@@ -1,0 +1,136 @@
+# Retrives SuperPokeBall, PokeBall with a weight greater than 100
+# DL
+PokeBall and weight some xsd:decimal[ > 100 ]
+
+# Retrives SuperPokeBall, PokeBall with a weight greater than 100
+# SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT DISTINCT ?pokeball 
+WHERE {
+    ?pokeball rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:PokeBall .
+    ?pokeball pokeOntology:weight ?w .
+    FILTER(?w > "100"^^xsd:float) .
+}
+----------
+# Retrives all the humans possessing a pokeball which contains a certain pokemon
+# DL
+Human and possess some (PokemonItem and contain some Pokemon)
+
+# Retrives all the Human and, optionally, his Pokemon: a human possessing a pokeball which contains a certain pokemon has that pokemon
+# SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT ?human ?pokemon
+WHERE {
+    ?human rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:Human .
+    OPTIONAL {
+        ?human pokeOntology:possess/pokeOntology:contain ?pokemon .
+    }
+}
+----------
+# Counts the Pokemon each PokemonTrainer has
+# DL
+???
+
+# Counts the Pokemon each PokemonTrainer has
+# SPARQL
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT ?trainer (COUNT(DISTINCT ?pokemon) AS ?count)
+WHERE {
+    ?trainer pokeOntology:possess ?pokeball .
+    ?pokeball pokeOntology:contain ?pokemon .
+}
+GROUP BY ?trainer
+ORDER BY DESC(?count)
+----------
+# Retrives BeginnerPokemonTrainer, Human that possesses a PokeBall that contains a StarterPokemon and has an age less than 12
+# DL
+Human and possess some (PokemonItem and contain some StarterPokemon) and age some xsd:decimal[ < 12 ]
+
+# Retrives BeginnerPokemonTrainer, Human that possesses a PokeBall that contains a StarterPokemon and has an age less than 12
+# SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT DISTINCT ?human
+WHERE {
+    ?human rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:Human .
+    ?human pokeOntology:possess ?pokeball .
+    ?pokeball pokeOntology:contain ?pokemon .
+    ?pokemon rdf:type pokeOntology:StarterPokemon .
+    ?human pokeOntology:age ?a .
+    FILTER(?a < "12"^^xsd:int) .
+}
+----------
+# Retrives all the Pokemon which does not have an evolution
+# DL
+???
+
+# Retrives all the Pokemon which does not have an evolution
+# SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT ?pokemon
+WHERE {
+    ?pokemon rdf:type ?type .
+    ?type rdfs:subClassOf* pokeOntology:Pokemon .
+    FILTER NOT EXISTS {
+        ?pokemon pokeOntology:evolves ?evolution .
+    }
+}
+----------
+# Retrives all the victors of each PokemonFight: a victor is the PokemonTrainer possessing the pokemon with greater power in the fight
+# DL
+???
+
+# Retrives all the victors of each PokemonFight: a victor is the PokemonTrainer possessing the pokemon with greater power in the fight
+# SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT ?fight ?victor
+WHERE {
+    ?pokemon1 pokeOntology:participateInFight ?fight .
+    ?pokemon2 pokeOntology:participateInFight ?fight .
+    ?pokemon1 pokeOntology:power ?p1 .
+    ?pokemon2 pokeOntology:power ?p2 .
+    FILTER(?p1 > ?p2) .
+    ?victor pokeOntology:possess ?pokeball .
+    ?pokeball pokeOntology:contain ?pokemon1 .
+}
+----------
+# Retrives the number of victories each PokemonTrainer has obtained in each PokemonBattle
+# DL
+???
+
+# Retrives the number of victories each PokemonTrainer has obtained in each PokemonBattle
+# SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX pokeOntology: <http://myonto.com/pokeOntology.owl#>
+
+SELECT ?battle ?trainer (COUNT(?pokemon1) AS ?nVictories)
+WHERE {
+    ?trainer pokeOntology:participateInBattle ?battle .
+    ?battle pokeOntology:involves ?fight .
+    ?trainer pokeOntology:possess/pokeOntology:contain ?pokemon1 .
+    ?pokemon1 pokeOntology:participateInFight ?fight .
+    ?pokemon2 pokeOntology:participateInFight ?fight .
+    ?pokemon1 pokeOntology:power ?p1 .
+    ?pokemon2 pokeOntology:power ?p2 .
+    FILTER(?p1 > ?p2) .
+}
+GROUP BY ?battle ?trainer
