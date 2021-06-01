@@ -73,13 +73,15 @@ The entry point of the application is the script [pokeOntology.py](/pokeOntology
 - [inconsistency.py](/inconsistency.py), it adds individuals to the ontology following the criterion of defining instances that sholud cause the model to become inconsistent
 - [visualize.py](/visualize.py), it prints the model having care of showing all the aspects of the modeled knowledge
 
+[pokeOntology.owl](/pokeOntology.owl) contains the modeled ontology expressed in NTriples format. [pokeOntologyInferred.owl](/pokeOntologyInferred.owl) contains the result of the reasoning step expressed in NTriples format
+
 # Usage <a name="usage"></a>
 
 The execution of the program follows these steps
 
 ## 1. Ontology Creation <a name = "onto_creation"></a>
 
-The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntology.owl is created and saved in the file [pokeOntology.owl](/pokeOntology.py), adopting NTriples format.
+The OWL 2 ontology identified by the fictional IRI http://myonto.com/pokeOntology.owl is created and saved in the file [pokeOntology.owl](/pokeOntology.owl), adopting NTriples format.
 
 ### Ontology Classes <a name = "onto_classes"></a>
 #### Class: pokeOntology.Organism
@@ -668,7 +670,7 @@ violates *PokeBall.is_a.append(contain.max(1))*
 
 ## 3. Reasoning <a name = "reasoning"></a>
 
-A separate world is instantiated for isolating ontology before reasoning, then [HermiT](http://www.hermit-reasoner.com/) reasoner is executed, obtaining the following results:
+A separate world is instantiated for isolating ontology before reasoning, then [HermiT](http://www.hermit-reasoner.com/) reasoner is executed, obtaining the following results (saved in Ntriples format in [pokeOntologyInferred.owl](/pokeOntologyInferred.owl)):
 #### Equivalenting
 * Owlready * Equivalenting: pokeOntology.Ivysaur pokeOntology.PoisonPokemon
 * Owlready * Equivalenting: pokeOntology.PoisonPokemon pokeOntology.Ivysaur
